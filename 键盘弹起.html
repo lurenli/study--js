@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>form</title>
+	<link rel="stylesheet" href="">
+	<style>
+	  img{
+	  	cursor: pointer;
+	  	position: absolute;
+	  	left:0;
+	  	top:0;
+	  }
+		
+	</style>
+</head>
+<body>
+   <form action='' id="Fo">
+      <p>用户名:</p>
+      <p><input type="text" value='小金' id="user"></p>
+      <p>密码:</p>
+      <p><input type="text"></p>
+      <p>验证码:</p>
+      <p><input type="text" id="yzm"></p>
+      <p>选择城市:</p>
+      <p>
+        <select name="" id="selt">
+          <option value="选择城市">选择城市</option>
+          <option value="北京">北京</option>
+          <option value="杭州">杭州</option>
+          <option value="南昌">南昌</option>
+          <option value="赣州">赣州</option>
+        </select>
+      </p>
+      <h3>请确认你的城市:<span id="city">太原</span></h3>
+      <p><input type="submit" value="OK">
+         <input type="reset"  value="Cancel"></p>
+   </form>
+</body>
+ <script> 
+    var Yzm = document.getElementById('yzm');
+    var User = document.getElementById('user');
+    var Selt = document.getElementById('selt');
+    var City = document.getElementById('city');
+    var Fo = document.getElementById('Fo');
+    Yzm.onkeyup=function(){
+      val=this.value;
+      var2=val.toUpperCase();
+      this.value=var2;
+    }
+    //得到光标
+    User.onfocus=function(){
+      //this.value='';
+      this.style.outlineColor='red';
+      this.select()
+    }
+    //失去光标
+    User.onblur=function(){
+      var value = this.value;
+      if(value.length<6){
+        alert('用户名至少为6位')
+      }
+    }
+    //改变事件
+    Selt.onchange=function(){
+      var Seltvalue = this.value;
+      City.innerHTML = Seltvalue
+    }
+    //提交
+    Fo.onsubmit = function(){
+     var  a = confirm('您确认提交表单吗');
+      if(!a){
+        return false;
+      }
+    }
+    //重置
+    Fo.onreset = function(){
+     var  r = confirm('您确认重置表单数据吗');
+      if(!r){
+        return false;
+      }
+    }
+    
+
+ </script>
+</html>

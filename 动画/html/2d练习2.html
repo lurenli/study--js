@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+li{list-style:none}
+a{text-decoration:none}
+
+img{ transition:all 1s}
+li{float:left;width:33%;height:400px;overflow:hidden; position:relative; }
+li:hover{opacity:0.5}
+h2{position:absolute;left:50px;top:100px;color:#fff}
+p{transition:all 1s;}
+.img1 p{color:#fff;font-size:30px;margin-left:30px}
+.img1:hover p{ transform:translateY(-100px)}
+.img2 p{position:absolute;left:-100%;background:#fff}
+.img2 .p1{top:150px; }
+.img2 .p2{top:200px;transition-delay:0.2s}
+.img2 .p3{top:250px;transition-delay:0.5s}
+.img2:hover p{left:10px;}
+.img3:hover p{ transform:translateY(-200px)}
+.img3 p{background:#fff}
+.img4 p{background:#fff;height:300px;width:200%}
+.img4:hover p{ transform:rotate(-15deg); transform-origin:left top}
+.img5 p{width:70%;height:250px;border:3px solid #f00; position:absolute;top:-100%;left:0;right:0;margin:auto}
+.img5:hover p{ transform:rotate(360deg);top:0;bottom:0;}
+.img6 p{position:absolute;left:20px;top:200px;color:#fff; transform:skewX(90deg)}
+.img6:hover p{transform:skew(0deg)}
+.img7 p{width:70%;height:250px;border:3px solid #fff; position:absolute;left:0;right:0;bottom:0;top:0;margin:auto}
+.img7:hover p{transform:scale(0.8,0.8)}
+.img7 img{transform:scale(1.2,1.2)}
+.img7:hover img{transform:scale(1,1)}
+.img8 p{position:absolute;left:0;right:0;bottom:0;top:0;margin:auto}
+.img8 .p1{width:75%;height:250px;border-top:1px solid #fff;border-bottom:1px solid #fff; transform:scale(0,1)}
+.img8 .p2{width:65%;height:280px;border-left:1px solid #fff;border-right:1px solid #fff;transform:scale(1,0)}
+.img8:hover p{ transform:scale(1,1)}
+</style>
+</head>
+<body>
+<ul>
+     <li class="img1">
+        <img src="../img1/pic1.jpg">
+        <h2>位移</h2>
+        <p>最简单的平移动画</p>
+     </li>
+    <li class="img2">
+        <img src="../img1/pic2.jpg">
+        <h2>位移</h2>
+        <p class="p1">最简单的平移动画</p>
+        <p class="p2">最简动画</p>
+        <p class="p3">最简单的平移动画</p>
+     </li>
+     <li class="img3">
+        <img src="../img1/pic3.jpg">
+        <h2>底部画出</h2>
+        <p>最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画最简单的平移动画</p>
+     </li>
+     <li class="img4">
+        <img src="../img1/pic4.jpg">
+        <h2>旋转</h2>
+        <p></p>
+     </li>
+     <li class="img5">
+        <img src="../img1/pic5.jpg">
+        <h2>旋转</h2>
+        <p></p>
+     </li>
+     <li class="img6">
+        <img src="../img1/pic6.jpg">
+        <h2>倾斜</h2>
+        <p>最简单的平移动画</p>
+     </li>
+     <li class="img7">
+        <img src="../img1/pic7.jpg">
+        <h2>位移</h2>
+        <p>最简单的平移动画</p>
+     </li>
+     <li class="img8">
+        <img src="../img1/pic8.jpg">
+        <h2>位移</h2>
+        <p class="p1"></p>
+        <p class="p2"></p>
+     </li>
+     <li>
+        <img src="../img1/pic9.jpg">
+        <h2>位移</h2>
+        <p>最简单的平移动画</p>
+     </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>弹球事例</title>
+	<link rel="stylesheet" href="">
+	<style>
+	  *{margin:0;padding:0;font-family:'微软雅黑'}
+	  #box{position:absolute;left:0;top:0;width:115px;height: 115px;overflow: hidden}
+	  
+	</style>
+</head>
+<body>
+	<div id="box"><img src="images/lq.jpg" id="lq"></div>
+</body>
+<script>
+	var Box = document.getElementById('box')
+    var ys=0;
+    var yv=5;
+
+    var xs=0;
+    var xv=5;
+
+   // imgHeight = 115
+    Box.onclick=function(){
+        setInterval(function(){
+         //Y轴
+         ys+=yv;
+         if(ys>=document.documentElement.clientHeight-Box.clientHeight){
+         	ys=document.documentElement.clientHeight-Box.clientHeight;
+         	yv=-yv;
+         }
+         if(ys<=0){
+         	yv=-yv
+         }
+         Box.style.top = ys +'px'
+
+         //X轴
+         xs+=xv;
+         if(xs>=document.documentElement.clientWidth-Box.clientWidth){
+            xs=document.documentElement.clientWidth-Box.clientWidth;
+            xv=-xv;
+         }
+         if(xs<=0){
+            xv=-xv
+         }
+         Box.style.left = xs +'px'
+
+        },10)
+    }
+</script>
+</html>

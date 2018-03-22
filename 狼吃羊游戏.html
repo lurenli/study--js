@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>狼吃羊游戏</title>
+	<link rel="stylesheet" href="">
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<style type="text/css" media="screen">
+	    *{
+	    	margin:0;
+	    	padding:0;
+	    }
+	    body{background:green;}
+	    #qipan{
+	    	width:450px;
+	    	height:450px;
+	    	/*background:#555;*/
+	    	margin:0 auto;
+	    	position:absolute;
+	    	top:50%;
+	    	left:50%;
+	    	margin-top:-225px;
+	    	margin-left:-225px;
+	    }
+	    .table{
+	    	width:400px;
+	    	height:400px;
+	    	margin:0 auto;
+	    	margin-top:25px;
+	    	border-collapse: collapse;
+	    }
+	    td{border:2px solid #0ff;}
+	    .cell{
+	    	width:50px;
+	    	height:50px;
+	    	position:absolute;
+	    	left:0;
+	    	top:0;
+	    	/*border:1px dashed #0f0;*/
+	    	cursor: pointer;
+	    }
+	    .fill{display:block;width:50px;height:50px;}
+	</style>
+
+</head>
+<body>
+  <div id="qipan">
+  	 <table class="table">
+  	 	<tr>
+  	 	  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+  	 	</tr>
+  	 	<tr>
+  	 	  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+  	 	</tr>
+  	 	<tr>
+  	 	  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+  	 	</tr>
+  	 	<tr>
+  	 	  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+  	 	</tr>
+  	 </table>
+  </div>
+</body>
+<script> 
+for(var i=0;i<25;i++){
+	$('#qipan').append('<div class="cell" xpos='+(i%5)+' ypos='+Math.floor(i/5)+'><span class="fill"></span></div>')
+}
+$('.cell').each(function(i){
+    xpos = $(this).attr('xpos');
+	xc = xpos*100;
+    ypos = $(this).attr('ypos');
+	yc = ypos*100;
+	$(this).css({'left':xc+'px','top':yc+'px'});
+
+
+	if(i>=1 && i<=3){
+          $(this).html('<img src="images/lang.jpg" class="lang">')
+	}
+	if(i>=10){
+		  $(this).html('<img src="images/yang.jpg" class="yang">')
+    }
+})
+	//狼
+   $(document).on('click','.lang',function(){
+   	 $('.lang').removeClass('active')
+   	 $('.yang').removeClass('active')
+   	 $(this).addClass('active')
+   });
+   //羊
+   $(document).on('click','.yang',function(){
+
+   	 langx = $('.active').parent().attr('xpos');
+   	 langy = $('.active').parent().attr('ypos');
+   	 yangx = $(this).parent().attr('xpos');
+   	 yangy = $(this).parent().attr('ypos');
+   	 gap   = Math.sqrt(Math.pow(langx-yangx,2)+Math.pow(langy-yangy,2));
+   	 if(gap==2){
+   	 	//狼吃掉羊
+   	 	$obj = $('.active');
+        $('.active').parent().html('<div class="fill"></div>');
+        $obj.removeClass('active')
+        $(this).parent().html($obj);
+   	 }else{
+         $('.lang').removeClass('active')
+		 $('.yang').removeClass('active')
+		 $(this).addClass('active')
+   	 }
+   });
+   //fill
+   $(document).on('click','.fill',function(){
+        //狼
+        langx = $('.active').parent().attr('xpos');
+     	langy = $('.active').parent().attr('ypos');
+     	fillx = $(this).parent().attr('xpos');
+     	filly = $(this).parent().attr('ypos');
+     	gap   = Math.sqrt(Math.pow(langx-fillx,2)+Math.pow(langy-filly,2));
+     	if(gap==1){
+	      if($('.active').hasClass('lang')){
+	        if($('.cell').find('img').hasClass('active')){
+		   	  $obj = $('.active')
+		      $('.active').parent().html('<div class="fill"></div>');
+		      $obj.removeClass('active')
+		      $(this).parent().html($obj);
+	        }
+	     }
+	   }
+         //羊
+	     if($('.active').hasClass('yang')){
+	     	yangx = $('.active').parent().attr('xpos');
+	     	yangy = $('.active').parent().attr('ypos');
+	     	fillx = $(this).parent().attr('xpos');
+	     	filly = $(this).parent().attr('ypos');
+	     	gap   = Math.sqrt(Math.pow(yangx-fillx,2)+Math.pow(yangy-filly,2));
+	        if(gap==1){
+		        if($('.cell').find('img').hasClass('active')){
+			   	  $obj = $('.active');
+			      $('.active').parent().html('<div class="fill"></div>');
+			      $obj.removeClass('active')
+			      $(this).parent().html($obj);
+		    }
+		}
+     }
+   })
+</script>
+</html>

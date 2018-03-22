@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<style type="text/css">
+		*{margin:0 ;padding:0}
+		#box{width:100px;height:100px;background:blue;position:absolute}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+  <script>
+      window.onload = function(){
+      	var Box = document.getElementById("box")
+
+      	Box.onmousedown = function(ev){
+      		var ev = ev || window.event ;
+      		var shortX = ev.clientX - Box.offsetLeft;
+      		var shortY = ev.clientY - Box.offsetTop;
+      		//console.log(shortX)
+      		//console.log(shortY)
+          document.onmousemove = function(ev){
+          	var ev = ev || window.event;
+          	var x = ev.clientX - shortX;
+          	var y = ev.clientY - shortY;
+          	var div = document.createElement('div');
+          	div.style.cssText = 'width:10px;height:10px;background:red;position:absolute;left:'+x+'px;top:'+y+'px';
+          	document.body.appendChild(div); 
+            if(x <0){
+              x = 0;
+            }else if(x >document.documentElement.clientWidth- Box.offsetWidth ){
+            	x = document.documentElement.clientWidth- Box.offsetWidth 
+            }
+            if(y < 0){
+              y = 0;
+            }else if(y > document.documentElement.clientHeight - Box.offsetHeight){
+            	y = document.documentElement.clientHeight - Box.offsetHeight; 
+            }
+          	Box.style.left = x+'px';
+          	Box.style.top = y+'px';
+          }
+          document.onmouseup = function(){
+    				Box.onmousedown = null;
+    				document.onmousemove = null;
+          }
+          return false;
+      	}
+      }
+  </script>
+</body>
+</html>

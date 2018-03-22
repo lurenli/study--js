@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+body{margin:0; padding:0}
+#to_top{
+width:30px;
+height:30px;
+position:absolute;
+border-radius:50%;
+}
+</style>
+<script>
+/*scrollHeight: 获取对象的滚动高度。
+
+scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离
+
+scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离
+scrollTop() 方法返回或设置匹配元素的滚动条的垂直位置。
+
+scrollWidth:获取对象的滚动宽度
+
+offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度
+
+offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置
+
+offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置
+
+event.clientX 相对文档的水平座标
+
+event.clientY 相对文档的垂直座标
+
+event.offsetX 相对容器的水平坐标
+
+event.offsetY 相对容器的垂直坐标
+
+document.documentElement.scrollTop 垂直方向滚动的值
+
+event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量*/
+window.onload = function(){
+
+function getrandom(min,max){//min 1  max 5
+	return Math.floor(Math.random()*(max-min+1)) + min;
+}
+ var oTop = document.getElementById("to_top");
+ var Div = document.createElement("div");
+ Div.style.cssText = "width:20px;height:20px;border-radius:50%"
+ var a=setInterval(function(){
+   Div.style.background='rgb('+getrandom(0,255)+','+getrandom(0,255)+','+getrandom(0,255)+')';
+   oTop.style.background='rgb('+getrandom(0,255)+','+getrandom(0,255)+','+getrandom(0,255)+')';
+},1000)
+ oTop.appendChild(Div); 
+ document.onmousemove = function(evt){
+  var oEvent = evt || window.event;
+  var scrollleft = document.documentElement.scrollLeft || document.body.scrollLeft;
+  var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+
+  oTop.style.left = oEvent.clientX + scrollleft + 5 + "px";
+  oTop.style.top = oEvent.clientY + scrolltop  + 5 + "px";
+ }
+}
+</script>
+</head>
+<body style="height:1000px;">
+<div id="to_top"></div>
+
+</body>
+</html>

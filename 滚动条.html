@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0 ;padding:0;}
+			body{margin:100px;}
+			#box{width:300px;height:500px;float:left;position: relative;font-size:14px;border:1px solid red;overflow: hidden;}
+			p{padding:10px;position: absolute;}
+			#big{
+				width:50px;height:500px;
+				border:1px solid red;float:left;margin-left:20px;position: relative;
+				}
+			#small{width:50px;height:50px;background:blue;position: absolute;left:0;top:0;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementById('box'); 
+				var oP=document.getElementsByTagName('p')[0];
+				var oBig=document.getElementById('big'); 
+				var oSmall=document.getElementById('small');
+				var y=0;
+				oSmall.onmousedown=function(ev){
+					var ev=ev||window.event;
+					y=ev.clientY-oSmall.offsetTop;//offsetTop:获取离定位父级的距离，如果父级没有定位，获取离body的距离,没有单位
+				document.onmousemove=function(ev){
+					var ev=ev||window.event;
+					var t=ev.clientY-y;//ev.clientY-y;////事件源可视区减去;t是可变化的
+					if(t<0){
+						t=0;
+					}else if(t>oBig.offsetHeight-oSmall.offsetHeight-2){
+						t=oBig.offsetHeight-oSmall.offsetHeight-2;
+					}	
+					var bili=t/(oBig.offsetHeight-oSmall.offsetHeight-2);
+					oP.style.top=-bili*(oP.offsetHeight-oBox.offsetHeight)+'px';
+					oSmall.style.top=t+'px';
+				}
+				document.onmouseup=function(){
+					document.onmouseup=null;
+					document.onmousedown=null;
+				}
+				return false;
+			  }
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<p>
+				在javascript的世界里，写法是个神奇的现象，真是百家齐开放啊！每次看到老外写的js组件，思想和写法都怪异，就没看到一个js结构基本相同的代码出来。今天，我就来谈谈js写法，我在开发过程中，也写了几种。对于性能方面，如果代码结构或逻辑写的不好，会造成计算机CPU的运算加大，运行性能降低，js的写法对性能的影响也是至关重要的。
+      通常写js组件开发的，都会用到匿名函数的写法去封装一个对象，与外界形成一个闭包的作用域。（这里对于js的继承，多态，我就不多说了，高级程序员应该具备这些知识，如果您也做过java开发，这个概念太熟悉了。）
+     主要对封装进行研究，因为前后台都会涉及到面向对象的概念，对于封装，怎么封装，封装的性能，等等很重要概念。封装（在程序世界是第一概念，我个人认为），全天下漫天遍野的封装，JQuery，EXT和Prototype.js封装的是javascript，jQuery uI和jQuery mobile封装着jQuery，java中的JDBC在spirng,Hibernate等框架封装着，在这里列举几个例子，还有很多种不一一介绍。
+     回到主题javaScript封装写法，先来看看一个简单的;在javascript的世界里，写法是个神奇的现象，真是百家齐开放啊！每次看到老外写的js组件，思想和写法都怪异，就没看到一个js结构基本相同的代码出来。今天，我就来谈谈js写法，我在开发过程中，也写了几种。对于性能方面，如果代码结构或逻辑写的不好，会造成计算机CPU的运算加大，运行性能降低，js的写法对性能的影响也是至关重要的。
+      通常写js组件开发的，都会用到匿名函数的写法去封装一个对象，与外界形成一个闭包的作用域。（这里对于js的继承，多态，我就不多说了，高级程序员应该具备这些知识，如果您也做过java开发，这个概念太熟悉了。）
+     主要对封装进行研究，因为前后台都会涉及到面向对象的概念，对于封装，怎么封装，封装的性能，等等很重要概念。封装（在程序世界是第一概念，我个人认为），全天下漫天遍野的封装，JQuery，EXT和Prototype.js封装的是javascript，jQuery uI和jQuery mobile封装着jQuery，java中的JDBC在spirng,Hibernate等框架封装着，在这里列举几个例子，还有很多种不一一介绍。
+     回到主题javaScript封装写法，先来看看一个简单的在javascript的世界里，写法是个神奇的现象，真是百家齐开放啊！每次看到老外写的js组件，思想和写法都怪异，就没看到一个js结构基本相同的代码出来。今天，我就来谈谈js写法，我在开发过程中，也写了几种。对于性能方面，如果代码结构或逻辑写的不好，会造成计算机CPU的运算加大，运行性能降低，js的写法对性能的影响也是至关重要的。
+      通常写js组件开发的，都会用到匿名函数的写法去封装一个对象，与外界形成一个闭包的作用域。（这里对于js的继承，多态，我就不多说了，高级程序员应该具备这些知识，如果您也做过java开发，这个概念太熟悉了。）
+     主要对封装进行研究，因为前后台都会涉及到面向对象的概念，对于封装，怎么封装，封装的性能，等等很重要概念。封装（在程序世界是第一概念，我个人认为），全天下漫天遍野的封装，JQuery，EXT和Prototype.js封装的是javascript，jQuery uI和jQuery mobile封装着jQuery，java中的JDBC在spirng,Hibernate等框架封装着，在这里列举几个例子，还有很多种不一一介绍。
+     回到主题javaScript封装写法，先来看看一个简单的;在javascript的世界里，写法是个神奇的现象，真是百家齐开放啊！每次看到老外写的js组件，思想和写法都怪异，就没看到一个js结构基本相同的代码出来。今天，我就来谈谈js写法，我在开发过程中，也写了几种。对于性能方面，如果代码结构或逻辑写的不好，会造成计算机CPU的运算加大，运行性能降低，js的写法对性能的影响也是至关重要的。
+			</p>
+		</div>
+		<div id="big">
+			<div id="small"></div>
+		</div>
+	</body>
+</html>

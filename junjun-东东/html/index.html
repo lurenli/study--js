@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{margin:0;padding:0;}
+		li{list-style:none;}
+		a{text-decoration:none;}
+	    .margin{width:1000px;margin:0 auto;}
+	    #box{background:url(../images/in_box3_bg.jpg) no-repeat center;height:640px;padding-top:50px;}
+		#box ul{width:1001px;border-top:1px soid #ddd;border-left:1px solid #ddd;}
+		#box ul li{float:left;overflow:hidden;height:121px;width:199px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;}
+		#box ul li a{display:block;width:199px;overflow:hidden;}
+		#box ul li a img{transition:0.5s;display:block;}
+		#box ul li a:hover img{margin-top:-121px;}
+	</style>
+</head>
+<body>
+<div id="box">
+<div class="margin">
+	<ul>
+	  <li><a href="#"><img src="../images/10-12-21-67-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-16-46-60-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-20-48-34-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-16-94-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-32-91-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-12-21-67-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-16-46-60-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-20-48-34-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-16-94-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-32-91-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-12-21-67-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-16-46-60-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-20-48-34-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-16-94-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-32-91-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-12-21-67-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-16-46-60-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-20-48-34-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-16-94-1.jpg"></a></li>
+      <li><a href="#"><img src="../images/10-21-32-91-1.jpg"></a></li>
+	</ul>
+</div>
+</div>
+<div class="time-item">
+         还剩
+         <!--<span id="day_show">0天</span>
+         <strong id="hour_show">0时</strong>-->
+         <span id="minute_show">0分</span>
+         <span id="second_show">0秒</span>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script>
+$(function () {        //加载完DOM的只执行函数 
+  var intDiff = parseInt(75);    //倒计时总秒数量
+  function timer(intDiff) {
+   window.setInterval(function () {
+    var day = 0,
+     hour = 0,
+     minute = 0,
+     second = 0;//时间默认值
+    if (intDiff > 0) {
+     //计算相关的天，小时，还有分钟，以及秒
+   day = Math.floor(intDiff / (60 * 60 * 24)); 
+   hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+   minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+  second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+    }
+    if (minute <= 9) minute = '0' + minute;
+    if (second <= 9) second = '0' + second;
+    $('#minute_show').html('<s></s>' + minute + '分');
+    $('#second_show').html('<s></s>' + second + '秒');
+    intDiff--;
+   }, 1000);
+}
+ //循环函数，是时钟运动起来
+ setInterval(function(){
+  if($('#minute_show').text() =='00分' && $('#second_show').text() =='00秒'){
+   clearInterval();
+  }
+ },1000)
+ 
+$(function () {
+   timer(intDiff);
+  });
+});
+
+</script>
+</body>
+</html>

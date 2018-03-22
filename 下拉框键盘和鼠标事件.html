@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>下拉框</title>
+  <style type="text/css" media="screen">
+    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,a{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    list-style:none;
+    text-decoration:none;
+    color: #333333;;
+    font-family: "微软雅黑", "宋体", "Tahoma";
+}
+
+#drop-select {
+    /* background-color:#D7C4C4; */
+    width:200px;
+    margin:0 auto;
+    margin-top:5em;
+    padding:0 1.5em;
+
+}
+#drop-select cite:after{
+    content:"";
+    display:block;
+    position:absolute;
+    right:5px;
+    top:3px;
+}
+#cite {
+    color: #807a62;
+    display:block;
+    height:2em;
+    font-style:normal;
+    padding-left:0.5em;
+    border:1px solid #101010;
+    line-height:2em;
+    cursor:pointer;
+}
+#ul {
+        display:none;
+        border-right:1px solid #101010;
+        border-bottom:1px solid #101010;
+        border-left:1px solid #101010;
+}
+#ul li{ 
+        padding-left:0.8em;
+        height:23px;
+        line-height:23px;
+}
+  </style>
+ </head>
+ <body>
+    <div id="drop-select">
+         <div id="cite">请选择分类</div>
+      <ul id="ul">
+         <li id="li"><a href="#">ASP开发</a></li>
+         <li><a href="#">.NET开发</a></li>
+         <li><a href="#">PHP开发</a></li>
+         <li><a href="#">Javascript开发</a></li>
+         <li><a href="#">Java特效</a></li>
+      </ul>
+    </div>
+     <script>
+       window.onload = function(){
+    var sCite = document.querySelector("#cite");
+    var sUl =document.getElementById("ul");
+    var sLis=document.getElementsByTagName("li");
+    var  index = -1;
+    //点击选择出现选项框
+    sCite.onclick = function(e){
+        var e = e || window.event; 
+        //事件冒泡会其冲突时，在较表层的事件处阻止事件冒泡，防止继续往下层冒，这里是和空白处点击事件冲突
+            if(e.stopPropagation){
+                e.stopPropagation();
+            } else{
+              //IE的用法
+                e.cancelBubble = true;
+            }
+            sUl.style.display ="block";
+            }
+
+        //键盘事件  
+    document.onkeydown = function(e){
+        var e = event || window.event;
+        for(var i=0;i<sLis.length;i++){
+                sLis[i].style.backgroundColor='#fff';
+            }
+        //console.log(e.keyCode);//上 38  下 40  回车13
+            //向上键
+            if(e.keyCode == 38){
+                index--;
+                if(index < 0){
+                    index = sLis.length-1;
+                }
+                sLis[index].style.backgroundColor ="rgb(204,204,204)";
+            }
+            //向下键   
+            if(e.keyCode == 40){
+                index++;
+                if(index > 4){
+                    index = 0;
+                }
+               sLis[index].style.backgroundColor ="rgb(204,204,204)";
+            }
+            //回车键
+            if(e.keyCode == 13){
+                sCite.innerHTML = sLis[index].firstChild.innerHTML;
+            }
+            /*index是全局变量在这个function里是通用的，但出了这个function，值就会变成-1*/
+        }
+
+    //滑过变色点击取值
+    for(var i =0;i<sLis.length;i++){
+        sLis[i].index = i;
+        sLis[i].onmouseover = function(){
+            this.style.backgroundColor ="rgb(204,204,204)";
+        }
+        sLis[i].onmouseout = function(){
+            this.style.backgroundColor ="#fff";
+        }
+        sLis[i].onclick = function(e){
+
+            sUl.style.display ="none";
+
+            sCite.innerHTML = sLis[this.index].firstChild.innerHTML;
+
+        }
+    }
+
+
+        //点击空白处收起菜单
+    document.onclick = function(){  
+            sUl.style.display ="none";
+    }
+}
+     </script>
+ </body

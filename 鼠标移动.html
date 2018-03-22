@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>123</title>
+	<link rel="stylesheet" href="">
+	<style>
+	  img{
+	  	cursor: pointer;
+	  	position: absolute;
+	  	left:0;
+	  	top:0;
+	  }
+		
+	</style>
+</head>
+<body>
+    <img src="images/1.png" id="img">
+</body>
+ <script> 
+        var  obj = document.getElementById('img');
+         i=0;
+        obj.onclick=function(){
+        	if(i%2==0){
+        		//console.log(11)
+               obj.src='images/2.png';
+        	}else{
+        		//console.log(22)
+        	   obj.src='images/1.png';
+        	}
+        	i++;
+        //obj.style.background='#ccc';
+        //obj.style.borderRadius='100px';
+
+     }
+     document.onmousemove=function(ev){
+     	//document.title='abc';
+         x=ev.clientX;
+         y=ev.clientY;
+         document.title=x +'-'+y;
+         obj.style.left=x+'px';
+         obj.style.top=y+'px'
+     }
+    </script>
+</html>

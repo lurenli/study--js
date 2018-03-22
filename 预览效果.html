@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>预览效果</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{margin:0;padding:0;}
+		#box{width:1200px;margin:10px auto;height:300px;}
+		p{margin:10px 0;}
+		.left{width:570px;height:100%;border:1px dashed #000;float:left;padding:10px;}
+		.right{width:570px;height:100%;border:1px dashed #000;float:right;padding:10px;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="left">
+			<p>用户名:</p>
+			<p id="user2"></p>
+			<p>留言:</p>
+			<p id="text2"></p>
+		</div>
+		<div class="right">
+			<p>用户名:</p>
+			<p><input type="text" placeholder="username" id="user"></p>
+			<p>留言:</p>
+			<p>
+				<textarea name="" cols="30" rows="10" id="text" placeholder="textarea"></textarea>
+			</p>
+			<p><input type="submit" value="OK"></p>
+		</div>
+	</div>
+</body>
+<script> 
+  var User = document.getElementById('user');
+  var Text = document.getElementById('text');
+  var User2 = document.getElementById('user2');
+  var Text2 = document.getElementById('text2');
+  User.onkeyup = function(){
+  	var value = this.value;
+  	User2.innerHTML = value;
+  }
+  Text.onkeyup = function(){
+  	var value = this.value;
+  	Text2.innerHTML = value;
+  }
+</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<style type="text/css">
+	 *{margin:0 ;padding:0}
+	 div{width:100px;height:100px;border-radius:50%;position:absolute}
+	</style>
+	<script> 
+       function bj(min,max){
+       	 return Math.ceil((Math.random()*max-1+min));
+       }
+       window.onload=function(){
+       	var Box = document.getElementById('box');
+        Box.style.background = 'rgb('+bj(0,255)+','+bj(0,255)+','+bj(0,255)+')';
+        var arr = [];
+        arr.push({
+        	x:Box.offsetLeft,
+        	y:Box.offsetTop
+        })
+        Box.onmousedown = function(ev){
+         var ev = ev||window.event;
+         var shortX = ev.clientX - Box.offsetLeft;
+         var shortY = ev.clientX - Box.offsetTop;
+
+         arr.push({
+         	x:Box.offsetLeft,
+         	y:Box.offsetTop
+         })
+         document.onmousemove = function(ev){
+         	var ev = ev ||window.event;
+         	var x1 = ev.clientX - shortX;
+			var y1 = ev.clientY - shortY;
+			var i =0;
+			var odiv = document.createElement('p');
+			odiv.style.cssText = 'width:10px;height:10px;border-radius:50%;position:absolute;background:rgb('+bj(0,255)+','+bj(0,255)+','+bj(0,255)+');left:'+x1+'px;top:'+y1+'px';
+            document.body.appendChild(odiv);
+            if(x1<0){
+            	x1=0
+            }else if(x1>document.documentElement.clientWidth-Box.offsetWidth){
+            	x1=document.documentElement.clientWidth-Box.offsetWidth
+            }
+            if(y1<0){
+            	y1=0
+            }else if(y1>document.documentElement.clientHeight-Box.offsetHeight){
+            	y1=document.documentElement.clientHeight-Box.offsetHeight
+            }
+            Box.style.left = x1 + 'px';
+            Box.style.top = y1 + 'px';
+            arr.push({x:x1,y:y1})
+
+         }
+        document.onmouseup = function(){
+        	document.onmousemove=null;
+			document.onmouseup=null;
+			var time = setInterval(function(){
+              if(arr.length==0){
+					return false;
+					clearInterval(time);	
+				}
+				var op = arr.shift();
+				Box.style.left = op.x +'px';
+				Box.style.top = op.y +'px';	
+			},50)
+         }
+         return false;
+		}
+       }
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

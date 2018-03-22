@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>日期时间选择框</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{margin:0;padding:0;}
+		h1{line-height:100px;}
+	</style>
+	<link href="https://cdn.bootcss.com/jquery-datetimepicker/2.5.18/jquery.datetimepicker.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-datetimepicker/2.5.18/jquery.datetimepicker.full.js"></script>
+</head>
+<body>
+	<h1>datetimepicker日期插件</h1>
+
+	<p>开始时间&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" name="" id="start">&nbsp;&nbsp;&nbsp;&nbsp;
+       结束时间&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" name="" id="end">
+	</p>
+</body>
+<script>
+	$('#start').datetimepicker({
+		'timepicker':false,
+		'format':'Y/m/d'
+	});
+    $('#end').datetimepicker({
+    	'timepicker':false,
+		'format':'Y/m/d'
+		// 'format':'H:i:s'
+		// 'datepicker':false
+    });
+</script>
+</html>

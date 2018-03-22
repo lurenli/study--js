@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>拖动插件</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{margin:0;padding:0;}
+        .div1{top:0px;left:0;position:absolute;cursor:pointer;z-index:1;}
+        .div2{top:300px;left:0px;width:300px;position:absolute;cursor:pointer;}
+        .div3{top:600px;left:0px;width:300px;position:absolute;cursor:pointer;}
+        .div4{right:30px;top:10px;width:300px;height:900px;border:1px solid red;position:absolute;cursor:pointer;}
+        .div5{height:300px;width:300px;border-bottom:1px dashed blue}
+        .div6{height:300px;width:300px;border-bottom:1px dashed blue}
+ 		.div7{height:300px;width:300px;}
+ 		.hide{display:none}
+	</style>
+	<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+	<script src="js/jquery.drag.js"></script>
+	<script src="js/jquery.drop.js"></script>
+</head>
+<body>
+	<div class="div1"><img src="images/1.png"></div>
+	<div class="div2"><img src="images/2.png"></div>
+	<div class="div3"><img src="images/3.png"></div>
+	<div class="div4">
+		<div class="div5"></div>
+		<div class="div6"></div>
+		<div class="div7"></div>
+	</div>
+	<span class="hide"></span>
+</body>
+<script>
+	$('.div1,.div2,.div3').mouseenter(function(){
+		$('.hide').html($(this).attr('class'))
+	});
+	$(".div1").drag()
+	$(".div2").drag()
+	$(".div3").drag()
+	$(".div5" ).drop(function(){
+		cls = $('.hide').html();
+		$('.'+cls).animate({
+			top:$('.div5').offset().top+'px',
+			left:$('.div5').offset().left+'px'
+	    });
+	})
+	$('.div6').drop(function(){
+		 cls = $('.hide').html();
+		$('.'+cls).animate({
+			top:$('.div6').offset().top+'px',
+			left:$('.div6').offset().left+'px'
+	    });
+	})
+	$('.div7').drop(function(){
+		 cls = $('.hide').html();
+		$('.'+cls).animate({
+			top:$('.div7').offset().top+'px',
+			left:$('.div7').offset().left+'px'
+	    });
+	})
+</script>
+</html>

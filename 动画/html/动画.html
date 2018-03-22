@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{width:200px;height:200px;position:absolute;left:10px;top:100px; animation-name:bg; animation-duration:6s;border:10px solid #09C}
+p{width:200px;height:200px;position:absolute;left:0px;top:300px;border:10px solid #09C;   /*transition-timing-function:linear;animation-name:move; animation-duration:3s;animation-delay:-2sanimation-iteration-count:infinite;animation-direction:alternate-reverseanimation-iteration-count:3; animation-fill-mode:backwards;animation-delay:2s; animation-play-state:paused*/  animation:bg 3s linear 3 alternate, move 4s linear 2;}
+
+@keyframes bg{/*规定了动画的具体内容---渐变过程*/
+	0%{background:#f00}
+	100%{background:#FF0}
+	}
+@keyframes move{
+	0%{left:10px}
+	50%{left:200px}
+	100%{left:300px}
+	}	
+</style>
+</head>
+<body>
+<div></div>
+<p></p>
+</body>
+</html>

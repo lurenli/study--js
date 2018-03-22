@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width:300px;height:600px;
+				background:blue;
+				position: absolute;
+				top:50px;
+				right:10px;
+				}
+			#box .tx{width:150px;height:150px;
+				     overflow:hidden;
+				     border-radius:50%;
+				     position:absolute;
+				     top:30px;
+				     left:30px;
+				     background: red;
+				     }
+			.bj{width:300px;height:200px;background:pink;display:none;position: absolute;top:50px;right:330px;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="tx"></div>
+		</div>
+        <div class="bj"></div>
+		<script type="text/javascript">
+			window.onload=function tem(){
+				var Otx=document.getElementsByClassName('tx')[0];
+				var Obj=document.getElementsByClassName('bj')[0];
+				var time=null;
+				  Otx.onmouseover=function(){
+				  	clearTimeout(time);//停止定时器(定时器返回值);即控制鼠标放在那里，对象停留。
+					Obj.style.display='block';
+				  }
+				   Otx.onmouseout=function(){
+                     time=setTimeout(function(){//setTimeout(函数名称，时间); 延时定时器
+                          Obj.style.display='none';
+                        },1000);
+                    };
+				   Obj.onmouseover=function(){ 
+            		 clearTimeout(time);//停止定时器(定时器返回值);
+            		 Obj.style.display='block';
+                    };
+                    Obj.onmouseout=function(){
+                      time=setTimeout(function(){
+                         Obj.style.display='none';
+                        },1000);
+                     }
+			}
+		</script>
+	</body>
+</html>

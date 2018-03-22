@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>123</title>
+	<link rel="stylesheet" href="">
+	<style>
+	  img{
+	  	cursor: pointer;
+	  	position: absolute;
+	  	left:0;
+	  	top:0;
+	  }
+		
+	</style>
+</head>
+<body>
+    <img src="images/1.png" id="img">
+</body>
+ <script> 
+        var  obj = document.getElementById('img');
+        xs=0;
+        xv=30;
+
+        ys=0;
+        yv=30;
+     document.onkeydown=function(ev){
+      kc=ev.keyCode;
+      document.title=kc;
+      switch(kc){
+          case 37://左
+              xs-=xv;
+              obj.style.left=xs+'px';
+              document.body.style.background='#f00';
+              break;
+          case 38://上
+              ys-=yv;
+              obj.style.top=ys+'px';
+              document.body.style.background='#0f0';
+              break;
+          case 39://右
+              xs+=xv;
+              obj.style.left=xs+'px';
+              document.body.style.background='#f0f';
+              break;
+          case 40://下
+              ys+=yv;
+              obj.style.top=ys+'px';
+              document.body.style.background='#ff0';
+              break;
+
+      }
+  }
+    </script>
+</html>

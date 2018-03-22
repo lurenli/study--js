@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//快速排序
+			/*function quicksort(array){//定义一个函数
+				if(array.length<=1){//如果数组的长度<=1，直接返回
+					return array;
+				}
+				//获取数组中间的索引，通过索引或者值。
+				var midIndex=Math.floor(array.length/2);//向下取整,获取中间的索引
+				//根据中间的索引获取对应的值。(splice)
+				var midValue=array.splice(midIndex,1);//splice:会改变原数组，midValue会被删除。
+				var left=[];
+				var right=[];
+				for(var i=0;i<array.length;i++){//遍历数组
+					if(array[i]<midValue){
+						left.push(array[i]);//如果当前的值比midValue小，push到left数组里面
+					}else{
+						right.push(array[i]);
+					}
+				}
+				return quicksort(left).concat(midValue,quicksort(right));
+			}
+			
+			alert(quicksort([2,1,56,48,63,25,17,888,14,369,7456]));//调用传参*/
+			
+			
+			/*冒泡排序*/
+			/*var arr=[2,1,56,48,63,25,17,14,369,7456];
+			var temp;
+			for(var i=0;i<arr.length-1;i++){
+				for(var j=i+1;j<arr.length;j++){
+					if(arr[i]>arr[j]){
+						temp=arr[i];						
+						arr[i]=arr[j];
+						arr[j]=temp;
+					}
+				}
+			}
+			alert(arr);*/
+			
+			/*选择排序*/
+			/*var arr=[0,23,456,1,79,800,12,3,9,8,88,8,7,2,3,3,1234,56];
+			for(var i=0;i<arr.length;i++){
+				var minIndex=i;//minIndex:假设最小值下标，下标是变化的。
+				for(var j=i+1;j<arr.length;j++){                                                 
+					if(arr[j]<arr[minIndex]){//如果arr[j]的值比最小值还小，arr[j]就是最小值，j就是最小的索引
+						minIndex=j;	//j就是最小的索引
+					}
+				}
+				//内层的循环结束后，获取到了最小值的索引，和假设最小索引的值进行交换
+//				var temp=arr[i];
+//				arr[i]=arr[minIndex];
+//				arr[minIndex]=temp;
+				if(minIndex!=i){//如果假设的刚好就是最小值，不用交换
+					var temp=arr[i];
+					arr[i]=arr[minIndex];
+					arr[minIndex]=temp;
+				}
+			}
+			alert(arr);*/
+			
+			
+			/*sort排序*/
+			/*var arr=[2,1,56,48,63,25,17,14,369,7456];
+			  alert(arr.sort(function(a,b){
+				return a-b;
+			}))*/
+			
+		</script>
+	</body>
+</html>

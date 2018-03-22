@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<!-- hasOwnProperty：是用来判断一个对象是否有你给出名称的属性或对象。不过需要注意的是，此方法无法检查该对象的原型链中是否具有该属性，该属性必须是对象本身的一个成员 -->
+	<script>
+		var myObj = {
+           gift: "pony",
+           pet: "kitten",
+           bed: "sleigh"
+         };
+
+         function checkObj(checkProp) {
+            if (myObj.hasOwnProperty(checkProp)) {
+            	console.log(checkProp)
+            	console.log(myObj.gift)
+              return myObj.checkProp;
+           }
+             return "Not Found";
+           }
+           checkObj("gift")
+           // console.log(checkObj("gift"));
+	</script>
+</body>
+</html>

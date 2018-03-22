@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//indexOf去重
+			/*var arr=[2,1,56,1,2,48,369,48,63,25,17,14,369,7456,14,17,63];
+			var newarr=[];
+			for(var i=0;i<arr.length;i++){
+				if(newarr.indexOf(arr[i])==-1){
+					newarr.push(arr[i]);
+				}
+			}
+			alert(newarr);*/
+			
+			//push去重
+			//var arr=[3,2,11,11,3,111,444,444,22,2,2,11,22,333,444,5,6,7,8,9,0];
+			/*var newarr=[];//定义一个新的数组，接收没有重复的项。
+			newarr.push(arr[0]);//将第一项push新数组中
+			for(var i=1;i<arr.length;i++){
+				var bstop=true;//没重复
+				for(var j=0;j<newarr.length;j++){
+					if(arr[i]==newarr[j]){//如果满足此条件，有重复，跳出循环。
+						bstop=false;
+						break;
+					}
+				}
+				if(bstop){//bstop==true  新数组不存在此数据。push进新数组。
+					newarr.push(arr[i]);
+				}
+			}
+			alert(newarr);*/
+			
+			
+			
+			//filter去重
+			var arr=[3,2,11,11,3,111,444,444,22,2,2,11,22,333,444,5,6,7,8,9,0];
+			alert(arr.filter(function(v,i,array){
+				return arr.indexOf(arr[i])==i;
+			}));
+			
+			//splice去重，改变原数组
+			/*var arr=[3,2,11,11,3,111,444,444,22,2,2,11,22,333,444,5,6,7,8,9,0];
+			for(var i=0;i<arr.length;i++){
+				for(var j=i+1;j<arr.length;j++){
+					if(arr[i]==arr[j]){
+						arr.splice(j,1);//改变原数组
+						j--;//跳过值。
+					}
+				}
+			}
+			alert(arr);*/
+			
+			//构造函数去重
+			/*var arr=[3,2,11,11,3,111,444,444,22,2,2,11,22,333,444,5,6,7,8,9,0];
+			var set=new Set(arr)
+			console.log(set);*/
+		</script>
+	</body>
+</html>

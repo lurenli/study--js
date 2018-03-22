@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:180px;height:300px;border:1px solid #F39;position:absolute;left:0;top:0;bottom:0;right:0;margin:auto;background:url(../img/1.png); animation:move 10s step-end infinite}
+/*
+100/7
+step-start  第一帧
+step-end
+steps(1)
+*/
+@keyframes move{
+	0%{ background-position:0 0}
+	14.2857%{background-position:-180px 0}
+	28.571%{background-position:-360px 0}
+	42.857%{background-position:-540px 0}
+	57.142%{background-position:-720px 0}
+	71.428%{background-position:-900px 0}
+	85.714%{background-position:-1080px 0}
+	100%{background-position:0 0}
+	}
+	/*@keyframes move{
+	0%{ background-position:0 0}
+	100%{background-position:-1260px 0}
+	}*/
+</style>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>

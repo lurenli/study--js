@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>jQZoom v2.0</title>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+$(".jqzoom").jqueryzoom({
+				xzoom: 250, //zooming div default width(default width value is 200)
+				yzoom: 250, //zooming div default width(default height value is 200)
+				offset: 10, //zooming div default offset(default offset value is 10)
+				position: "right" //zooming div position(default position value is "right")
+			});
+});
+</script>
+<link rel="stylesheet" href="style/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="style/jqzoom.css" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+
+
+
+		<div id="maincontent">
+								
+				<h3 style="float:left;clear:both;">Demo</h3>
+				<p>Now move the mouse over the images.</p>
+			<div style="float:left;width:100%;clear:both;">
+			<div class="jqzoom"><img src="images/me_small.jpg"  alt="scarpa"  jqimg="images/me_big.jpg"></div>
+				
+
+                
+				<p><div class="jqzoom"  style='margin-right:5px;'><img src="images/shoe2_small.jpg"  alt="scarpa"  jqimg="images/shoe2_big.jpg"></div>
+				<div class="jqzoom" style='margin-right:5px;' ><img src="images/shoe3_small.jpg"  alt="scarpa"  jqimg="images/shoe3_big.jpg"></div>
+				<div class="jqzoom"><img src="images/shoe4_small.jpg"  alt="scarpa"  jqimg="images/shoe4_big.jpg"></div></p>
+                </div>
+		 <span style="float:left;width:100%;height:200px;">&nbsp;</span>
+		</div>
+</div>
+
+</body>
+</html>
